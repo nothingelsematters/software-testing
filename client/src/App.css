@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+.navigation-links {
+  display: inline-block;
+}
+
+li {
+  float: left;
+  margin-right: 3rem;
+}
