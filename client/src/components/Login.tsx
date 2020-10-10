@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 
-class Login extends React.Component<{} & RouteComponentProps, { login: string, password: string, result: string | null }> {
+class Login extends React.Component<{ submitLogin: () => void } & RouteComponentProps, { login: string, password: string, result: string | null }> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -48,7 +48,7 @@ class Login extends React.Component<{} & RouteComponentProps, { login: string, p
             required minLength={5} maxLength={40} pattern="[A-Za-z0-9_\-!@$%^&*]+"
             onChange={e => this.setState({ password: e.target.value })} />
 
-          <button className="button">login</button>
+          <button className="button" onClick={this.props.submitLogin}>login</button>
         </form>
         {this.state.result ? <div key={this.state.result}>{this.state.result}</div> : null}
       </div>
