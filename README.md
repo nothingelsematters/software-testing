@@ -22,5 +22,5 @@
 
 ## CI/CD
 
-+ [Github Action](https://github.com/features/actions) for testing UI and *[TODO]* Backend on push in master
++ [Github Action](https://github.com/features/actions) for testing UI and Backend on push
 + *[TODO]* **Advanced**: Deploy UI+BE application
