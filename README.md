@@ -1,12 +1,26 @@
 # Software Testing
 
 - [Software Testing](#software-testing)
-  - [Frontend testing](#frontend-testing)
+  - [Frontend](#frontend)
+  - [[TODO] Backend](#todo-backend)
+  - [CI/CD](#cicd)
 
-## Frontend testing
+## Frontend
 
-+ React framework application in the `client` folder
-+ It contains several routing pages
-  and a service that communicates with the node.js backend
-+ There are unit and component tests
++ [React framework](https://reactjs.org/) application ([client/](client/))
++ Several routing pages and a service that communicates with the [node.js](https://nodejs.org/) backend ([api/](api/))
++ Unit and component tests
 + **Advanced**: Authorization
+
+## [TODO] Backend
+
++ [Kotlin](https://kotlinlang.org/) + [Spring](https://spring.io/) + [PostgreqsQL](https://www.postgresql.org/) ([back/](back/))
++ Unit and Component tests
++ [TestContainers](https://testcontainers.org/) for one database test
++ [MockK](https://mockk.io/): mocking library for Kotlin
++ **Advanced**: Authorization tests
+
+## CI/CD
+
++ [Github Action](https://github.com/features/actions) for testing UI and *[TODO]* Backend on push in master
++ *[TODO]* **Advanced**: Deploy UI+BE application
