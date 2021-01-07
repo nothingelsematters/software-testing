@@ -3,20 +3,35 @@ name: lint
 on: [push]
 
 jobs:
-  eslint:
-    name: eslint
+  back:
+    name: ktlint on back
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+
+    - name: ktlint
+      uses: ScaCap/action-ktlint@master
+      with:
+        github_token: ${{ secrets.github_token }}
+
+  client:
+    name: eslint on client
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
     - name: install node v12
       uses: actions/setup-node@v1
       with:
         node-version: 12
+
     - name: npm install
       working-directory: client
       run: npm install
+
     - name: install eslint
       run: npm install eslint
+
     - name: linter
       uses: icrawl/action-eslint@v1
       with:

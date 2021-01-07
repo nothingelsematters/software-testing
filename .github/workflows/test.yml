@@ -1,20 +1,33 @@
-name: test client
+name: test
 
 on: [push]
 
 jobs:
-  npm:
-    name: test
+  back:
+    name: back tests
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+
+    - name: test
+      working-directory: ./back
+      run: ./gradlew test
+
+  client:
+    name: client tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
     - name: install node v12
       uses: actions/setup-node@v1
       with:
         node-version: 12
+
     - name: npm install
       working-directory: ./client
       run: npm install
+
     - name: test
       working-directory: ./client
       run: npm test
