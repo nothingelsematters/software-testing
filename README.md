@@ -2,8 +2,11 @@
 
 - [Software Testing](#software-testing)
   - [Frontend](#frontend)
+  - [[TODO] Frontend e2e testing](#todo-frontend-e2e-testing)
   - [Backend](#backend)
   - [CI/CD](#cicd)
+  - [[TODO] Workshop performance testing](#todo-workshop-performance-testing)
+  - [[TODO] Reporting integration (?!)](#todo-reporting-integration-)
 
 ## Frontend
 
@@ -12,6 +15,11 @@
 + Unit and component tests
 + **Advanced**: Authorization \
   *[TODO]*: improve
+
+## [TODO] Frontend e2e testing
+
++ At least 5 tests using [Cypress](https://cypress.io) and [Playwright](https://playwright.tech) frameworks
++ **Advanced**: Authorization tests
 
 ## Backend
 
@@ -26,3 +34,11 @@
 
 + [Github Action](https://github.com/features/actions) for testing UI and Backend on push
 + *[TODO]* **Advanced**: Deploy UI+BE application
+
+## [TODO] Workshop performance testing
+
++ Publish result in the repository
++ **Advanced**: Github Action CI
++ **Bonus**: Allure report generation
+
+## [TODO] Reporting integration (?!)
