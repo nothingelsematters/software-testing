@@ -45,9 +45,8 @@ dependencies {
     runtimeOnly("org.springframework.boot", "spring-boot-devtools", springVersion)
     runtimeOnly("org.postgresql", "postgresql", "42.2.2")
 
-    // testImplementation("org.jetbrains.kotlin", "kotlin-test-junit", kotlinVersion)
-    // testImplementation("org.springframework.boot", "spring-boot-starter-test", springVersion)
-    // testImplementation("io.mockk", "mockk", "1.10.4")
+    testImplementation("org.jetbrains.kotlin", "kotlin-test-junit", kotlinVersion)
+    testImplementation("io.mockk", "mockk", "1.10.4")
 }
 
 kapt {
@@ -64,12 +63,6 @@ tasks.withType<KotlinCompile> {
     }
 }
 
-// configure<DependencyManagementExtension> {
-//     imports {
-//         mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
-//     }
-// }
-
 tasks.withType<Test> {
-    useJUnitPlatform()
+    useJUnit()
 }
