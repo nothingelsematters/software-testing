@@ -16,9 +16,9 @@
 ## Backend
 
 + [Kotlin](https://kotlinlang.org/) + [Spring](https://spring.io/) + [PostgreqsQL](https://www.postgresql.org/) ([back/](back/))
-+ Unit and *[TODO]* Component tests
++ Unit and Component tests
 + [MockK](https://mockk.io/): mocking library for Kotlin
-+ *[TODO]* [TestContainers](https://testcontainers.org/) for one database test
++ [TestContainers](https://testcontainers.org/) for one database test
 + *[TODO]* Integration with UI
 + *[TODO]* **Advanced**: Authorization tests
 

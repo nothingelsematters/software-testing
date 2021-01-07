@@ -26,6 +26,7 @@ dependencies {
     val kotlinVersion = "1.4.21"
     val springVersion = "2.4.1"
     val exposedVersion = "0.28.1"
+    val testContainersVersion = "1.15.1"
 
     implementation("org.jetbrains.kotlin", "kotlin-stdlib-jdk8", kotlinVersion)
     implementation("org.jetbrains.kotlin", "kotlin-reflect", kotlinVersion)
@@ -45,7 +46,10 @@ dependencies {
     runtimeOnly("org.springframework.boot", "spring-boot-devtools", springVersion)
     runtimeOnly("org.postgresql", "postgresql", "42.2.2")
 
-    testImplementation("org.jetbrains.kotlin", "kotlin-test-junit", kotlinVersion)
+    testImplementation("org.springframework.boot", "spring-boot-starter-test", springVersion)
+    testImplementation("org.jetbrains.kotlin", "kotlin-test-junit5", kotlinVersion)
+    testImplementation("org.testcontainers", "postgresql", "1.15.1")
+    testImplementation("org.testcontainers", "junit-jupiter", "1.15.1")
     testImplementation("io.mockk", "mockk", "1.10.4")
 }
 
@@ -64,5 +68,5 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.withType<Test> {
-    useJUnit()
+    useJUnitPlatform()
 }
