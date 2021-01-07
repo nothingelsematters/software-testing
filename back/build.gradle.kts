@@ -1,6 +1,17 @@
+import io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
-    id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.4.21"
+    val kotlinVersion = "1.4.21"
+    val springVersion = "2.4.1"
+    val springDependencyManagementVestion = "1.0.10.RELEASE"
+
+    kotlin("jvm") version kotlinVersion
+    kotlin("plugin.spring") version kotlinVersion
+    kotlin("kapt") version "1.4.30-M1"
+
+    id("org.springframework.boot") version springVersion
+    id("io.spring.dependency-management") version springDependencyManagementVestion
 }
 
 group = "com.github.nothingelsematters"
@@ -8,23 +19,57 @@ version = "0.1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    val kotlinVersion = "1.4.21"
+    val springVersion = "2.4.1"
+    val exposedVersion = "0.28.1"
 
-    // JSON parsing
-    implementation("com.beust:klaxon:5.4")
+    implementation("org.jetbrains.kotlin", "kotlin-stdlib-jdk8", kotlinVersion)
+    implementation("org.jetbrains.kotlin", "kotlin-reflect", kotlinVersion)
 
-    // logging
-    implementation("io.github.microutils:kotlin-logging:2.0.3")
-    implementation("org.slf4j:slf4j-simple:2.0.0-alpha1")
+    implementation("io.github.microutils", "kotlin-logging", "2.0.4")
 
-    // configuration
-    implementation("com.natpryce:konfig:1.6.10.0")
+    implementation("org.springframework.boot", "spring-boot-starter", springVersion)
+    implementation("org.springframework.boot", "spring-boot-starter-data-rest", springVersion)
+    implementation("org.springframework.boot", "spring-boot-starter-web", springVersion)
+    implementation("com.fasterxml.jackson.module", "jackson-module-kotlin", "2.12.0")
+    kapt("org.springframework.boot", "spring-boot-configuration-processor", springVersion)
 
+    implementation("org.jetbrains.exposed", "exposed-core", exposedVersion)
+    implementation("org.jetbrains.exposed", "exposed-dao", exposedVersion)
+    implementation("org.jetbrains.exposed", "exposed-jdbc", exposedVersion)
 
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:1.4.0")
-    testImplementation("io.mockk:mockk:1.10.2")
-    testImplementation("com.xebialabs.restito:restito:0.8.2")
+    runtimeOnly("org.springframework.boot", "spring-boot-devtools", springVersion)
+    runtimeOnly("org.postgresql", "postgresql", "42.2.2")
+
+    // testImplementation("org.jetbrains.kotlin", "kotlin-test-junit", kotlinVersion)
+    // testImplementation("org.springframework.boot", "spring-boot-starter-test", springVersion)
+    // testImplementation("io.mockk", "mockk", "1.10.4")
+}
+
+kapt {
+    correctErrorTypes = true
+}
+
+tasks.withType<KotlinCompile> {
+    println("Configuring KotlinCompile  $name in project ${project.name}...")
+    kotlinOptions {
+        languageVersion = "1.4"
+        apiVersion = "1.4"
+        jvmTarget = "14"
+        freeCompilerArgs = listOf("-Xjsr305=strict")
+    }
+}
+
+// configure<DependencyManagementExtension> {
+//     imports {
+//         mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
+//     }
+// }
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }
