@@ -27,7 +27,7 @@
 + Unit and Component tests
 + [MockK](https://mockk.io/): mocking library for Kotlin
 + [TestContainers](https://testcontainers.org/) for one database test
-+ *[TODO]* Integration with UI
++ Integration with UI
 + *[TODO]* **Advanced**: Authorization tests
 
 ## CI/CD

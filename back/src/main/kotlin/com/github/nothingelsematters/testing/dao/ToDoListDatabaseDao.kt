@@ -33,6 +33,7 @@ class ToDoListDatabaseDao(url: String?, username: String?, password: String?) : 
 
     override fun delete(id: Int): Boolean = transaction {
         val row = getRowById(id) ?: return@transaction false
+        row.tasks.forEach { it.delete() }
         row.delete()
         true
     }

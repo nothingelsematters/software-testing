@@ -9,6 +9,9 @@ function Navigation() {
         <Link to='/' className="links">
           <li>Home</li>
         </Link>
+        <Link to='/lists' className="links">
+          <li>Lists</li>
+        </Link>
         <Link to='/login' className="links">
           <li>Login</li>
         </Link>

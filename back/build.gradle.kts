@@ -24,7 +24,8 @@ repositories {
 
 dependencies {
     val kotlinVersion = "1.4.21"
-    val springVersion = "2.4.1"
+    val springVersion = "5.4.2"
+    val springBootVersion = "2.4.1"
     val exposedVersion = "0.28.1"
     val testContainersVersion = "1.15.1"
 
@@ -33,23 +34,26 @@ dependencies {
 
     implementation("io.github.microutils", "kotlin-logging", "2.0.4")
 
-    implementation("org.springframework.boot", "spring-boot-starter", springVersion)
-    implementation("org.springframework.boot", "spring-boot-starter-data-rest", springVersion)
-    implementation("org.springframework.boot", "spring-boot-starter-web", springVersion)
+    implementation("org.springframework.security", "spring-security-config", "5.4.2")
+    implementation("org.springframework.security", "spring-security-web", "5.4.2")
+    implementation("org.springframework.boot", "spring-boot-starter", springBootVersion)
+    implementation("org.springframework.boot", "spring-boot-starter-data-rest", springBootVersion)
+    implementation("org.springframework.boot", "spring-boot-starter-web", springBootVersion)
+    implementation("org.springframework.boot", "spring-boot-starter-webflux", springBootVersion)
     implementation("com.fasterxml.jackson.module", "jackson-module-kotlin", "2.12.0")
-    kapt("org.springframework.boot", "spring-boot-configuration-processor", springVersion)
+    kapt("org.springframework.boot", "spring-boot-configuration-processor", springBootVersion)
 
     implementation("org.jetbrains.exposed", "exposed-core", exposedVersion)
     implementation("org.jetbrains.exposed", "exposed-dao", exposedVersion)
     implementation("org.jetbrains.exposed", "exposed-jdbc", exposedVersion)
 
-    runtimeOnly("org.springframework.boot", "spring-boot-devtools", springVersion)
+    runtimeOnly("org.springframework.boot", "spring-boot-devtools", springBootVersion)
     runtimeOnly("org.postgresql", "postgresql", "42.2.2")
 
-    testImplementation("org.springframework.boot", "spring-boot-starter-test", springVersion)
+    testImplementation("org.springframework.boot", "spring-boot-starter-test", springBootVersion)
     testImplementation("org.jetbrains.kotlin", "kotlin-test-junit5", kotlinVersion)
-    testImplementation("org.testcontainers", "postgresql", "1.15.1")
-    testImplementation("org.testcontainers", "junit-jupiter", "1.15.1")
+    testImplementation("org.testcontainers", "postgresql", testContainersVersion)
+    testImplementation("org.testcontainers", "junit-jupiter", testContainersVersion)
     testImplementation("io.mockk", "mockk", "1.10.4")
 }
 
