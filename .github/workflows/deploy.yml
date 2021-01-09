@@ -1,0 +1,30 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  back:
+    name: deploy back
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: akhileshns/heroku-deploy@v3.8.9
+      with:
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_app_name: itmo-software-testing
+        heroku_email: daretoodefy@gmail.com
+        appdir: back
+        buildpack: heorku/gradle
+        procfile: "web: java -jar build/libs/software-testing-0.1.0-SNAPSHOT.jar --server.port=$PORT"
+        healthcheck: https://itmo-software-testing.herokuapp.com/health
+        delay: 40
+        checkstring: OK
+        rollbackonhealthcheckfailed: true
+      env:
+        HD_DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        HD_DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
+        HD_DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
