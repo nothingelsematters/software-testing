@@ -24,7 +24,7 @@
 ## CI/CD
 
 + [Github Action](https://github.com/features/actions) for testing UI and Backend on push
-+ *[TODO]* **Advanced**: Deploy UI+BE application
++ **Advanced**: Deploy UI+BE application
 
 ## [TODO] Workshop performance testing
 

@@ -7,12 +7,13 @@ on:
 
 jobs:
   back:
-    name: deploy back
+    name: deploy back and client
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
 
-    - uses: akhileshns/heroku-deploy@v3.8.9
+    - name: deploy back
+      uses: akhileshns/heroku-deploy@v3.8.9
       with:
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
         heroku_app_name: itmo-software-testing
@@ -28,3 +29,17 @@ jobs:
         HD_DATABASE_URL: ${{ secrets.DATABASE_URL }}
         HD_DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
         HD_DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+
+    - name: deploy client
+      uses: akhileshns/heroku-deploy@v3.8.9
+      with:
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_app_name: itmo-software-testing-client
+        heroku_email: daretoodefy@gmail.com
+        appdir: client
+        buildpack: heorku/nodejs
+        healthcheck: https://itmo-software-testing-client.herokuapp.com/
+        delay: 20
+        rollbackonhealthcheckfailed: true
+      env:
+        HD_REACT_APP_BACK_URL: https://itmo-software-testing.herokuapp.com/

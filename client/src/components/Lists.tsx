@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+import Configuration from "../Configuration";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 
 type ToDoList = {
@@ -27,8 +28,9 @@ class Lists extends React.Component<
       listName: "",
       taskName: ""
     };
+    console.log(process.env.REACT_APP_API_URL);
 
-    fetch("http://localhost:8080/api/v1/", { method: "GET" })
+    fetch(`${Configuration.backUrl}api/v1/`, { method: "GET" })
       .then(res => res.text())
       .then(res => this.setState({ result: JSON.parse(res) as [ToDoList] }))
       .catch(
@@ -42,27 +44,27 @@ class Lists extends React.Component<
     return (e: any) => {
       e.preventDefault();
       (async () => {
-        await fetch(url, props).catch(err => console.log(err));
+        await fetch(`${Configuration.backUrl}${url}`, props).catch(err => console.log(err));
         window.location.reload();
       })();
     };
   }
 
   handleDelete(id: number): (e: any) => void {
-    return this.performRequest(`http://localhost:8080/api/v1/delete/${id}`, { method: "POST" });
+    return this.performRequest(`api/v1/delete/${id}`, { method: "POST" });
   }
 
   handleCheck(id: number): (e: any) => void {
-    return this.performRequest(`http://localhost:8080/api/v1/check/${id}`, { method: "POST" });
+    return this.performRequest(`api/v1/check/${id}`, { method: "POST" });
   }
 
   handleAddList(): (e: any) => void {
-    return this.performRequest(`http://localhost:8080/api/v1?listName=${this.state.listName}`, { method: "POST" });
+    return this.performRequest(`api/v1?listName=${this.state.listName}`, { method: "POST" });
   }
 
   handleAddTask(id: number): (e: any) => void {
     return this.performRequest(
-      `http://localhost:8080/api/v1/${id}/add`,
+      `api/v1/${id}/add`,
       {
         method: "POST",
         body: this.state.taskName
@@ -87,9 +89,9 @@ class Lists extends React.Component<
                 list.tasks.map(task =>
                   <li>
                     {
-                        task.completed
-                          ? "✔️"
-                          : <button id="check" onClick={this.handleCheck(task.id).bind(this)}>✖️</button>
+                      task.completed
+                        ? "✔️"
+                        : <button id="check" onClick={this.handleCheck(task.id).bind(this)}>✖️</button>
                     }
                     {task.description}
                   </li>
