@@ -4,7 +4,7 @@
   - [Frontend](#frontend)
   - [Backend](#backend)
   - [CI/CD](#cicd)
-  - [[TODO] Workshop performance testing](#todo-workshop-performance-testing)
+  - [Workshop performance testing](#workshop-performance-testing)
 
 ## Frontend
 
@@ -15,18 +15,17 @@
 
 ## Backend
 
-+ [Kotlin](https://kotlinlang.org/) + [Spring](https://spring.io/) + [PostgreqsQL](https://www.postgresql.org/) ([back/](back/))
++ [Kotlin](https://kotlinlang.org/) + [Spring](https://spring.io/) + [PostgreqSQL](https://www.postgresql.org/) ([back/](back/))
 + Unit and Component tests
 + [MockK](https://mockk.io/): mocking library for Kotlin
-+ [TestContainers](https://testcontainers.org/) for one database test
-+ Integration with UI
++ [TestContainers](https://testcontainers.org/) database tests
 
 ## CI/CD
 
-+ [Github Action](https://github.com/features/actions) for testing UI and Backend on push
-+ **Advanced**: Deploy UI+BE application
++ [Github Action](https://github.com/features/actions) for linting and testing UI and Backend on push
++ **Advanced**: [Heroku](https://heroku.com/) application deploy
 
-## [TODO] Workshop performance testing
+## Workshop performance testing
 
-+ Publish result in the repository
-+ **Advanced**: Github Action CI
++ [Gitlab code repository](https://gitlab.com/tinkoff-performance-workshop-results/software-testing/)
+  and [result diagrams and stuff](https://tinkoff-performance-workshop-results.gitlab.io/software-testing/)
