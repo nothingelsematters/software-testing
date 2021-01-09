@@ -28,7 +28,8 @@ class Lists extends React.Component<
       listName: "",
       taskName: ""
     };
-    console.log(process.env.REACT_APP_API_URL);
+
+    console.log(`using back url: ${Configuration.backUrl}`);
 
     fetch(`${Configuration.backUrl}api/v1/`, { method: "GET" })
       .then(res => res.text())
