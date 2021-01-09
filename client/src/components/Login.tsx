@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+import Configuration from "../Configuration";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 
 class Login extends React.Component<{ submitLogin: () => void } & RouteComponentProps, { login: string, password: string, result: string | null }> {
@@ -20,7 +21,7 @@ class Login extends React.Component<{ submitLogin: () => void } & RouteComponent
       password: this.state.password
     };
 
-    fetch("http://localhost:5000/authorize", {
+    fetch(`${Configuration.apiUrl}authorize`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
