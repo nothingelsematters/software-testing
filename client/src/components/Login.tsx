@@ -41,10 +41,12 @@ class Login extends React.Component<{ submitLogin: () => void } & RouteComponent
       <div className="main">
         <h1 className="title">Login page</h1>
         <form className="form" onSubmit={this.backendAuthorize}>
+          <label htmlFor="login">login:</label>
           <input className="input" id="login" type="text" name="login" placeholder="login"
             required minLength={4} maxLength={20} pattern="[A-Za-z0-9_\-]+"
             onChange={e => this.setState({ login: e.target.value })} />
 
+          <label htmlFor="password">password:</label>
           <input className="input" id="password" type="password" name="pass" placeholder="password"
             required minLength={5} maxLength={40} pattern="[A-Za-z0-9_\-!@$%^&*]+"
             onChange={e => this.setState({ password: e.target.value })} />

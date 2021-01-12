@@ -11,6 +11,7 @@
 + [React framework](https://reactjs.org/) application ([client/](client/))
 + Several routing pages and a service that communicates with the [node.js](https://nodejs.org/) backend ([api/](api/))
 + Unit and component tests
++ [Lighthouse](https://developers.google.com/web/tools/lighthouse/) Accessibility, Best Practices, SEO: 100%
 + **Advanced**: Authorization
 
 ## Backend

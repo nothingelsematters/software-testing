@@ -6,18 +6,18 @@ function Navigation() {
   return (
     <nav>
       <ul className="navigation-links">
-        <Link to='/' className="links">
-          <li>Home</li>
-        </Link>
-        <Link to='/lists' className="links">
-          <li>Lists</li>
-        </Link>
-        <Link to='/login' className="links">
-          <li>Login</li>
-        </Link>
-        <Link to='/about' className="links">
-          <li>About</li>
-        </Link>
+        <li>
+          <Link to='/' className="links">Home</Link>
+        </li>
+        <li>
+          <Link to='/lists' className="links">Lists</Link>
+        </li>
+        <li>
+          <Link to='/login' className="links">Login</Link>
+        </li>
+        <li>
+          <Link to='/about' className="links">About</Link>
+        </li>
       </ul>
     </nav>
   );

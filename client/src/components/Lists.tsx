@@ -84,7 +84,7 @@ class Lists extends React.Component<
         <ul>
           <li>
             {list.name}
-            <button id="check" onClick={this.handleDelete(list.id).bind(this)}>delete list</button>
+            <button id={"delete" + list.id} onClick={this.handleDelete(list.id).bind(this)}>delete list</button>
             <ul>
               {
                 list.tasks.map(task =>
@@ -92,7 +92,7 @@ class Lists extends React.Component<
                     {
                       task.completed
                         ? "✔️"
-                        : <button id="check" onClick={this.handleCheck(task.id).bind(this)}>✖️</button>
+                        : <button id={"check" + task.id} onClick={this.handleCheck(task.id).bind(this)}>✖️</button>
                     }
                     {task.description}
                   </li>
@@ -101,6 +101,7 @@ class Lists extends React.Component<
             </ul>
 
             <form className="form" onSubmit={this.handleAddTask(list.id).bind(this)}>
+              <label htmlFor="new-task">Add task:</label>
               <input className="input" id="new-task" type="text" name="new-task" placeholder="list name"
                 required minLength={0} maxLength={500} pattern="[A-Za-z0-9_\- ]+"
                 onChange={e => this.setState({ taskName: e.target.value })} />
@@ -113,8 +114,10 @@ class Lists extends React.Component<
 
     return (
       <div className="main">
+        <h1 className="title">Lists</h1>
         {content}
         <form className="form" onSubmit={this.handleAddList().bind(this)}>
+          <label htmlFor="new-list">Add list:</label>
           <input className="input" id="new-list" type="text" name="new-list" placeholder="list name"
             required minLength={0} maxLength={50} pattern="[A-Za-z0-9_\- ]+"
             onChange={e => this.setState({ listName: e.target.value })} />
