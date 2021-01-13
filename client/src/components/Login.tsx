@@ -53,7 +53,7 @@ class Login extends React.Component<{ submitLogin: () => void } & RouteComponent
 
           <button className="button" onClick={this.props.submitLogin}>login</button>
         </form>
-        {this.state.result ? <div key={this.state.result}>{this.state.result}</div> : null}
+        {this.state.result ? <div className="result" key={this.state.result}>{this.state.result}</div> : null}
       </div>
     );
   }

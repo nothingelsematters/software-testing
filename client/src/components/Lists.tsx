@@ -82,17 +82,17 @@ class Lists extends React.Component<
     } else {
       content = res.map(list => (
         <ul>
-          <li>
+          <li className="list">
             {list.name}
-            <button id={"delete" + list.id} onClick={this.handleDelete(list.id).bind(this)}>delete list</button>
+            <button className="delete" id={"delete" + list.id} onClick={this.handleDelete(list.id).bind(this)}>delete list</button>
             <ul>
               {
                 list.tasks.map(task =>
-                  <li>
+                  <li className="task">
                     {
                       task.completed
                         ? "✔️"
-                        : <button id={"check" + task.id} onClick={this.handleCheck(task.id).bind(this)}>✖️</button>
+                        : <button className="check" id={"check" + task.id} onClick={this.handleCheck(task.id).bind(this)}>✖️</button>
                     }
                     {task.description}
                   </li>
