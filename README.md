@@ -23,6 +23,11 @@
 ## E2E testing
 
 + [Selenide](https://selenide.org/) test suites in Kotlin ([selenide/](selenide/))
+  with [Allure report](https://docs.qameta.io/allure/) integration
++ [Selenoid](https://aerokube.com/selenoid/latest/) integration
+  > Download and run `./cm selenoid start` providing
+  > `selenoid.url=http://localhost:4444/wd/hub` in
+  > [properties](selenide/src/test/resources/properties.properties)
 
 ## CI/CD
 

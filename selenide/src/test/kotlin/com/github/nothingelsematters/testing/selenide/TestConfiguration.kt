@@ -15,6 +15,8 @@ object TestConfiguration {
 
     val URL by Configured("url", stringType)
 
+    val SELENOID_URL by Configured("selenoid.url", stringType)
+
     private class Configured<C, T>(private val name: String, private val parse: (PropertyLocation, String) -> T) {
         operator fun getValue(thisRef: C, property: KProperty<*>): T = configuration[Key(name, parse)]
     }

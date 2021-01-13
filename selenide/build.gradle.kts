@@ -8,7 +8,7 @@ group = "com.github.nothingelsematters"
 version = "0.1.0-SNAPSHOT"
 
 val kotlinVersion = "1.4.21"
-val allureVersion = "2.13.6"
+val allureVersion = "2.13.8"
 val junitVersion = "5.7.0"
 
 repositories { mavenCentral() }
