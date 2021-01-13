@@ -12,6 +12,8 @@ plugins {
 
     id("org.springframework.boot") version springVersion
     id("io.spring.dependency-management") version springDependencyManagementVestion
+
+    id("io.qameta.allure") version "2.5"
 }
 
 group = "com.github.nothingelsematters"
@@ -24,9 +26,9 @@ repositories {
 
 dependencies {
     val kotlinVersion = "1.4.21"
-    val springVersion = "5.4.2"
     val springBootVersion = "2.4.1"
     val exposedVersion = "0.28.1"
+    val junitVersion = "5.2.0"
     val testContainersVersion = "1.15.1"
 
     implementation("org.jetbrains.kotlin", "kotlin-stdlib-jdk8", kotlinVersion)
@@ -50,8 +52,12 @@ dependencies {
     runtimeOnly("org.springframework.boot", "spring-boot-devtools", springBootVersion)
     runtimeOnly("org.postgresql", "postgresql", "42.2.2")
 
-    testImplementation("org.springframework.boot", "spring-boot-starter-test", springBootVersion)
     testImplementation("org.jetbrains.kotlin", "kotlin-test-junit5", kotlinVersion)
+    testImplementation("org.junit.jupiter", "junit-jupiter-api", junitVersion)
+    testRuntimeOnly("org.junit.jupiter", "junit-jupiter-engine", junitVersion)
+    testRuntimeOnly("io.qameta.allure", "allure-junit5", "2.13.8")
+
+    testImplementation("org.springframework.boot", "spring-boot-starter-test", springBootVersion)
     testImplementation("org.testcontainers", "postgresql", testContainersVersion)
     testImplementation("org.testcontainers", "junit-jupiter", testContainersVersion)
     testImplementation("io.mockk", "mockk", "1.10.4")
@@ -59,6 +65,14 @@ dependencies {
 
 kapt {
     correctErrorTypes = true
+}
+
+tasks {
+    allure {
+        autoconfigure = true
+        version = "2.13.8"
+        downloadLinkFormat = "https://dl.bintray.com/qameta/maven/io/qameta/allure/allure-commandline/%s/allure-commandline-%<s.zip"
+    }
 }
 
 tasks.withType<KotlinCompile> {

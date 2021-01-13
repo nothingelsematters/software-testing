@@ -5,7 +5,7 @@
 + [React framework](https://reactjs.org/) application ([client/](client/))
 + Several routing pages and a service that communicates
   with the [node.js](https://nodejs.org/) backend ([api/](api/))
-+ Unit and component tests
++ Unit and Component tests
 + [Lighthouse](https://developers.google.com/web/tools/lighthouse/)
   Accessibility, Best Practices, SEO: 100%
 + **Advanced**: Authorization
@@ -18,6 +18,7 @@
 + Unit and Component tests
 + [MockK](https://mockk.io/): mocking library for Kotlin
 + [TestContainers](https://testcontainers.org/) database tests
++ [Allure report](https://docs.qameta.io/allure/) integration
 
 ## E2E testing
 
