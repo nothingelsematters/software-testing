@@ -22,6 +22,8 @@
 
 ## E2E testing
 
++ [Cypress](https://www.cypress.io/) framework test suites in JavaScript ([client/cypress/](client/cypress/))
++ [Playwright](https://playwright.dev/) framework test suites in TypeScript ([client/test/](client/test/))
 + [Selenide](https://selenide.org/) test suites in Kotlin ([selenide/](selenide/))
   with [Allure report](https://docs.qameta.io/allure/) integration
 + [Selenoid](https://aerokube.com/selenoid/latest/) integration
